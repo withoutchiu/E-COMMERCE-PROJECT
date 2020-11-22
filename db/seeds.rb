@@ -5,4 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+AdminUser.delete_all
+Category.delete_all
+Color.delete_all
+Brand.delete_all
+Product.delete_all
+
+NUMBERS_OF_CATEGORY_COLOR_BRAND = 4;
+
+NUMBERS_OF_CATEGORY_COLOR_BRAND.times do
+  category = Category.create(name: Faker::Creature::Horse.unique.breed)
+
+
+end
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+puts "Category created #{Category.count}"
