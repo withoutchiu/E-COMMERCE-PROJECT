@@ -1,3 +1,50 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.style_image{
+  max-width: 100%;
+  height: 8em;
+  display: block;
+  margin: auto;
+}
+.fix-height {
+  height: 8em;
+}
+.show_img{
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+.img_aside{
+  margin: auto;
+}
+
+.mb-3, .my-3 {
+  margin-bottom: 1rem !important;
+}
+.mt-3, .my-3 {
+  margin-top: 1rem !important;
+}
+.rating-stars {
+  display: inline-block;
+  vertical-align: middle;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
+  clear: both;
+}
+.rating-stars li.stars-active {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.rating-stars li.stars-active i {
+  color: orange;
+}
+.content-body {
+  flex: 1 1 auto;
+  padding: 2rem 2.3rem;
+}

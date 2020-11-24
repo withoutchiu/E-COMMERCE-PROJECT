@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products, only: [:index, :show] do
+    collection do
+      get "search"
+    end
+  end
   resources :welcome
+  resources :cart, only: %i[:create, :destroy]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
