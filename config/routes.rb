@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
   resources :welcome
-  resources :cart, only: %i[:create, :destroy]
+  resources :cart, only: %i[create destroy]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
