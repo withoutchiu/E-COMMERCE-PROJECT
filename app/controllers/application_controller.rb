@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
   before_action :initialize_session
   before_action :increment_visit_count
-  helper_method :visit_count,:cart
+  helper_method :visit_count,:cart, :product_categories
 
 
   private
 
-  # def product_categories
-  #   Category.all
-  # end
+  def product_categories
+    Category.all
+  end
 
   def initialize_session
     session[:visit_count] ||= 0

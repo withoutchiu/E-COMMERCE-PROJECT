@@ -54,7 +54,7 @@
   <ul class="pagination">
 
     <li class="page-item <%= 'disabled' if @page == 0 %> "><%= link_to "Previous Page", products_path(page: @page - 1), class: "page-link" %></li>
-    <li class="page-item <%= 'disabled' if @page == @total_page %>"><%= link_to "Next Page", products_path(page: @page + 1), class: "page-link" %> </li>
+    <li class="page-item <%= 'disabled' if @page >= @total_page %>"><%= link_to "Next Page", products_path(page: @page + 1), class: "page-link" %> </li>
   </ul>
 </nav>
 
