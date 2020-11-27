@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
       @count = @products.count
     end
       @total_page = (@count / ITEM_PER_PAGE)
-
   end
 
   def show

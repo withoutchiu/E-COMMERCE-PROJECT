@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :products, only: [:index, :show] do
     collection do
       get "search"
     end
   end
+
+  resources :searches
   resources :welcome
   resources :cart, only: %i[create destroy]
 

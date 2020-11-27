@@ -60,3 +60,21 @@
 .mr-3, .mx-3 {
   margin-right: 0rem !important;
 }
+
+.padding-y {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.header-main {
+  position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+h2, .h2 {
+  font-size: 2rem;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  line-height: 1.3;
+}

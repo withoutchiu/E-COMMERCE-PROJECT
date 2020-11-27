@@ -1,0 +1,13 @@
+<section class="section-pagetop bg">
+  <div class="container">
+    <h2 class="title-page">Category products</h2>
+    <nav>
+      <ol class="breadcrumb text-white">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <% request.path.to_s.split('/').drop(1).each do |x| %>
+          <li class="breadcrumb-item"><a href="/<%=x%>"><%= x.capitalize%></a></li>
+          <%end%>
+      </ol>
+    </nav>
+  </div> <!-- container //  -->
+</section>

@@ -1,0 +1,129 @@
+<header class="section-header">
+  <section class="header-main border-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-2 col-4">
+          <a href="http://bootstrap-ecommerce.com" class="brand-wrap">
+            <%= image_tag("logo.png", :alt => "logo", :class => "logo") %>
+          </a> <!-- brand-wrap.// -->
+        </div>
+        <div class="col-lg-6 col-sm-12">
+        <%= form_with(url: search_products_path, method: :get, local: true) do %>
+            <div class="input-group w-100">
+              <%= text_field_tag(:keywords, nil, class: "input form-control", placeholder: 'Search for heroes')%>
+                <div class="input-group-append">
+                  <%= submit_tag("Search", class: "btn btn-primary")%>
+                  </button>
+                </div>
+              </div>
+          <% end %>
+        </div> <!-- col.// -->
+        <div class="col-lg-4 col-sm-6 col-12">
+          <div class="widgets-wrap float-md-right">
+            <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Launch demo modal
+            </button> %>
+            <div class="widget-header  mr-3">
+              <a href="#" class="icon icon-sm rounded-circle border" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-shopping-cart"></i></a>
+              <span class="badge badge-pill badge-danger notify"><%=cart.size%></span>
+            </div>
+            <div class="widget-header icontext">
+              <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+              <div class="text">
+                <span class="text-muted">Welcome, <%=current_user.present? ? current_user.first_name : 'Stranger'%> </span>
+                <div>
+                  <% if user_signed_in? %>
+                    <%= link_to "Sign out", destroy_user_session_path, method: :delete%>
+                  <%else%>
+                    <%= link_to "Sign in", new_user_session_path%> |
+                    <%= link_to "Register", new_user_registration_path%>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- widgets-wrap.// -->
+        </div> <!-- col.// -->
+      </div> <!-- row.// -->
+    </div> <!-- container.// -->
+  </section> <!-- header-main .// -->
+</header>
+
+<!---------------------------------------------DISREGARD THIS CODE IT IS A MODAL---------------------------------->
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your shopping cart</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if cart.present?%>
+          <div class="card">
+
+            <table class="table table-borderless table-shopping-cart">
+              <thead class="text-muted">
+                <% cart.each do |product|%>
+              <tr class="small text-uppercase">
+                <th scope="col">Product</th>
+                <th scope="col" width="120">Quantity</th>
+                <th scope="col" width="120">Price</th>
+                <th scope="col" class="text-right" width="200"> </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>
+                  <figure class="itemside">
+                    <div class="aside">
+                        <%= image_tag(product.image, :alt => "#{product.name} image", width: 150) %>
+                    </div>
+                    <figcaption class="info">
+                      <a href="#" class="title text-dark"><%= product.name%></a>
+                      <p class="text-muted"><%= product.description%></p>
+
+                      <p class="text-muted small">Brand: <%= Brand.where("id = #{product.brand_id}").first.name %><br>
+                                                  Color: <%= Color.where("id = #{product.color_id}").first.name %><br>
+                                                  Category: <%= Category.where("id = #{product.category_id}").first.name %>
+                      </p>
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <select class="form-control" id="quantity">
+                    <% (1..1).each do |i|%>
+                      <option value="#{i}"><%=i%></option>
+                    <%end%>
+                  </select>
+                </td>
+                <td>
+                  <div class="price-wrap">
+                    <var class="price" id="total_price">$<%= product.price%></var>
+                    <br>
+                    <small class="text-muted" id="product_price"> $<%= product.price%> each </small>
+                  </div> <!-- price-wrap .// -->
+                </td>
+                <td class="text-right">
+                <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
+                <%= link_to "", cart_path(product), class: "btn btn-light fa fa-trash", method: :delete%>
+                </td>
+              </tr>
+              <%end%>
+              </tbody>
+            </table>
+
+            <div class="card-body border-top">
+              <a href="#" class="btn btn-primary float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+              <a href="#" class="btn btn-light"> <i class="fa fa-chevron-left" data-dismiss="modal"></i> Continue shopping </a>
+            </div>
+          </div>
+        <% else %>
+        Please add items to your shopping Cart.
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
