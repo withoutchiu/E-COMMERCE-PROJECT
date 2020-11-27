@@ -1,0 +1,105 @@
+<aside class="col-md-3">
+        <%= form_for @search, html: {class: "pure-form"} do |s|%>
+        <div class="card" id="navHolder">
+          <header class="card-header">
+            <h3 class="title">Advance Search </h3>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Type keyword here...">
+              </div>
+          </header>
+          <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+                <h6 class="title">Category</h6>
+              </a>
+        </header>
+            <div class="filter-content collapse show" id="collapse_1" style="">
+              <div class="card-body">
+                <ul class="list-menu">
+                  <%= s.select :category_id, options_for_select(@categories), :include_blank => true %>
+                </ul>
+              </div> <!-- card-body.// -->
+            </div>
+          </article> <!-- filter-group  .// -->
+          <article class="filter-group">
+            <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
+                <p class="title">Brands </p>
+              </a>
+            </header>
+            <div class="filter-content collapse show" id="collapse_2" style="">
+              <div class="card-body">
+                <ul class="list-menu">
+                  <%= s.select :brand_id, options_for_select(@brands), :include_blank => true %>
+                </ul>
+              </div> <!-- card-body.// -->
+            </div>
+          </article> <!-- filter-group .// -->
+          <article class="filter-group">
+            <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
+                <h6 class="title">Colors </h6>
+              </a>
+            </header>
+            <div class="filter-content collapse show" id="collapse_4" style="">
+              <div class="card-body">
+                <ul class="list-menu">
+                  <%= s.select :color_id, options_for_select(@colors), :include_blank => true %>
+                </ul>
+            </div><!-- card-body.// -->
+            </div>
+          </article> <!-- filter-group .// -->
+          <article class="filter-group">
+            <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
+                <h6 class="title">Price range </h6>
+              </a>
+            </header>
+            <div class="filter-content collapse show" id="collapse_3" style="">
+              <div class="card-body">
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label>Min</label>
+                  <input class="form-control" placeholder="$0" type="number">
+                </div>
+                <div class="form-group text-right col-md-6">
+                  <label>Max</label>
+                  <input class="form-control" placeholder="$1,0000" type="number">
+                </div>
+                </div> <!-- form-row.// -->
+                <button class="btn btn-block btn-primary">Apply</button>
+              </div><!-- card-body.// -->
+            </div>
+          </article> <!-- filter-group .// -->
+          <article class="filter-group">
+            <header class="card-header">
+              <a href="#" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" class="">
+                <h6 class="title">More filter (SOON)</h6>
+              </a>
+            </header>
+            <div class="filter-content collapse in" id="collapse_5" style="">
+              <div class="card-body">
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                  <div class="custom-control-label">Searches Any condition</div>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" class="custom-control-input">
+                  <div class="custom-control-label">Brand new </div>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" class="custom-control-input">
+                  <div class="custom-control-label">Used items</div>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" name="myfilter_radio" class="custom-control-input">
+                  <div class="custom-control-label">Very old</div>
+                </label>
+              </div><!-- card-body.// -->
+            </div>
+            <%end%>
+          </article> <!-- filter-group .// -->
+        </div> <!-- card.// -->
+      </aside> <!-- col.// -->

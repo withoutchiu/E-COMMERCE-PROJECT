@@ -9,7 +9,7 @@ class CartController < ApplicationController
       product = Product.find(id)
       flash[:notice] = "#{product.name} added to cart. "
     end
-    redirect_to root_path
+    redirect_to products_path
   end
 
   #DELETE /cart/:id
@@ -19,6 +19,6 @@ class CartController < ApplicationController
     product = Product.find(id)
     flash[:notice] = "#{product.name} removed from the cart. "
 
-    redirect_to root_path
+    redirect_to products_path
   end
 end

@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
   end
 
+
+
   private
 
   def product_categories
@@ -32,6 +34,10 @@ class ApplicationController < ActionController::Base
 
   def visit_count
     session[:visit_count]
+  end
+
+  def after_sign_in_path_for(resource)
+    products_path
   end
 
 end

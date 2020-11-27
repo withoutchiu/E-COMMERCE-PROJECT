@@ -10,6 +10,11 @@ class ProductsController < ApplicationController
       @count = @products.count
     end
       @total_page = (@count / ITEM_PER_PAGE)
+
+      @search = Search.new
+      @categories = Category.pluck(:name, :id)
+      @brands = Brand.all.pluck(:name, :id)
+      @colors = Color.all.pluck(:name, :id)
   end
 
   def show
