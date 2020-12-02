@@ -1,7 +1,11 @@
-<script>
- document.getElementById("navHolder").style.display = "none";
-</script>
+<%= render 'shared/navbar'%>
+<div class="container">
 
+<header class="section-heading">
+	<h2 class="section-title"><%=@product.name%> Description </h2>
+</header><!-- sect-heading -->
+
+<article>
 <div class="card">
 	<div class="row no-gutters">
 		<aside class="col-md-6 img_aside">
@@ -82,3 +86,6 @@
 		</main> <!-- col.// -->
 	</div> <!-- row.// -->
 </div> <!-- card.// -->
+</article>
+
+</div>

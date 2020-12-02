@@ -2,7 +2,7 @@
       <main class="col-md-9">
         <header class="border-bottom mb-4 pb-3">
             <div class="form-inline">
-              <span class="mr-md-auto"><%= @count %> Shoes found.</span>
+              <span class="mr-md-auto"><%= Product.count %> Shoes found.</span>
               <span class="mr-md-auto">You have visited this page for <%= pluralize visit_count, 'time' %>.</span>
 
               <select class="mr-2 form-control">
@@ -49,9 +49,8 @@
         </div> <!-- row end.// -->
         <nav class="mt-4" aria-label="Page navigation sample">
           <ul class="pagination">
-
-            <li class="page-item <%= 'disabled' if @page == 0 %> "><%= link_to "Previous Page", products_path(page: @page - 1), class: "page-link" %></li>
-            <li class="page-item <%= 'disabled' if @page >= @total_page %>"><%= link_to "Next Page", products_path(page: @page + 1), class: "page-link" %> </li>
+            <li class="page-item "><%= link_to "Previous Page", products_path(page: @page - 1), class: "page-link" %></li>
+            <li class="page-item "><%= link_to "Next Page", products_path(page: @page + 1), class: "page-link" %> </li>
           </ul>
         </nav>
       </main> <!-- col.// -->
