@@ -36,8 +36,4 @@ class ApplicationController < ActionController::Base
     session[:visit_count]
   end
 
-  def after_sign_in_path_for(resource)
-    products_path
-  end
-
 end
