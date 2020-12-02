@@ -6,12 +6,14 @@
               <span class="mr-md-auto"><%= @count %> Shoes found.</span>
               <span class="mr-md-auto">You have visited this page for <%= pluralize visit_count, 'time' %>.</span>
 
+              <%= form_for @products, url: products_path, method: :get do |f| %>
               <select class="mr-2 form-control">
                 <option>Latest items</option>
-                <option>Trending</option>
+                <option></option>
                 <option>Most Popular</option>
                 <option>Cheapest</option>
               </select>
+              <%end%>
             </div>
         </header><!-- sect-heading -->
         <div class="row">
@@ -19,7 +21,7 @@
           <div class="col-md-4">
             <figure class="card card-product-grid">
               <div class="img-wrap">
-                <span class="badge badge-danger"> NEW </span>
+                <span class="badge badge-danger <%='d-none' if not DateTime.current.to_s(:time).to_i - product.updated_at.to_s(:time).to_i < 1%>"> NEW </span>
                 <% if product.image.present? %>
                 <%= image_tag product.image, :class => "style_image"%>
                 <% end %>
