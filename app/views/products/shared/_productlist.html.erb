@@ -18,7 +18,7 @@
           <div class="col-md-4">
             <figure class="card card-product-grid">
               <div class="img-wrap">
-                <span class="badge badge-danger"> NEW </span>
+                <span class="badge badge-danger <%='d-none' if not DateTime.current.to_s(:time).to_i - product.updated_at.to_s(:time).to_i < 1%>"> NEW </span>
                 <% if product.image.present? %>
                 <%= image_tag product.image, :class => "style_image"%>
                 <% end %>
