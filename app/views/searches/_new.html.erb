@@ -4,7 +4,7 @@
           <header class="card-header">
             <h3 class="title">Advance Search </h3>
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Type keyword here...">
+                <%= s.text_field :keywords, placeholder: "Search here...", class: 'form-control'%>
               </div>
           </header>
           <header class="card-header">
@@ -15,7 +15,7 @@
             <div class="filter-content collapse show" id="collapse_1" style="">
               <div class="card-body">
                 <ul class="list-menu">
-                  <%= s.select :category_id, options_for_select(@categories), :include_blank => true %>
+                  <%= s.select :category_id, options_for_select(@categories), {:include_blank => true, :selected=> params[:category_id]}, {class: 'form-control'} %>
                 </ul>
               </div> <!-- card-body.// -->
             </div>
@@ -29,7 +29,7 @@
             <div class="filter-content collapse show" id="collapse_2" style="">
               <div class="card-body">
                 <ul class="list-menu">
-                  <%= s.select :brand_id, options_for_select(@brands), :include_blank => true %>
+                  <%= s.select :brand_id, options_for_select(@brands),  {:include_blank => true}, {class: 'form-control'} %>
                 </ul>
               </div> <!-- card-body.// -->
             </div>
@@ -43,7 +43,7 @@
             <div class="filter-content collapse show" id="collapse_4" style="">
               <div class="card-body">
                 <ul class="list-menu">
-                  <%= s.select :color_id, options_for_select(@colors), :include_blank => true %>
+                  <%= s.select :color_id, options_for_select(@colors), {:include_blank => true}, {class: 'form-control'}  %>
                 </ul>
             </div><!-- card-body.// -->
             </div>
@@ -59,11 +59,11 @@
                 <div class="form-row">
                 <div class="form-group col-md-6">
                   <label>Min</label>
-                  <input class="form-control" placeholder="$0" type="number">
+                  <%=s.text_field :min_price, size: 10, class: "form-control", placeholder: "Input Price here..." %>
                 </div>
                 <div class="form-group text-right col-md-6">
                   <label>Max</label>
-                  <input class="form-control" placeholder="$1,0000" type="number">
+                  <%=s.text_field :max_price, size: 10, class: "form-control", placeholder: "Input Price here..." %>
                 </div>
                 </div> <!-- form-row.// -->
                 <button class="btn btn-block btn-primary">Apply</button>

@@ -1,7 +1,7 @@
       <main class="col-md-9">
         <header class="border-bottom mb-4 pb-3">
             <div class="form-inline">
-              <span class="mr-md-auto"><%= @count %> Shoes found.</span>
+              <span class="mr-md-auto"><%= @search.search_products.count %> Shoes found.</span>
               <span class="mr-md-auto">You have visited this page for <%= pluralize visit_count, 'time' %>.</span>
 
               <select class="mr-2 form-control">
