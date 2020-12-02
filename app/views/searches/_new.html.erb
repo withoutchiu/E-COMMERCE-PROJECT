@@ -1,8 +1,8 @@
 <aside class="col-md-3">
-        <%= form_for @search, html: {class: "pure-form"} do |s|%>
         <div class="card" id="navHolder">
+          <%= form_for @search, html: {class: "pure-form"} do |s|%>
           <header class="card-header">
-            <h3 class="title">Advance Search </h3>
+              <h6 class="title">Advance Search</h6>
               <div class="input-group">
                 <%= s.text_field :keywords, placeholder: "Search here...", class: 'form-control'%>
               </div>
@@ -73,7 +73,7 @@
           <article class="filter-group">
             <header class="card-header">
               <a href="#" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" class="">
-                <h6 class="title">More filter (SOON)</h6>
+                <i class="icon-control fa fa-chevron-down"></i><h6 class="title">More filter (SOON)</h6>
               </a>
             </header>
             <div class="filter-content collapse in" id="collapse_5" style="">
