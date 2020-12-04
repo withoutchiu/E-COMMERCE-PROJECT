@@ -6,14 +6,12 @@
               <span class="mr-md-auto"><%= @count %> Shoes found.</span>
               <span class="mr-md-auto">You have visited this page for <%= pluralize visit_count, 'time' %>.</span>
 
-              <%= form_for @products, url: products_path, method: :get do |f| %>
               <select class="mr-2 form-control">
                 <option>Latest items</option>
                 <option></option>
                 <option>Most Popular</option>
                 <option>Cheapest</option>
               </select>
-              <%end%>
             </div>
 
         </header><!-- sect-heading -->
