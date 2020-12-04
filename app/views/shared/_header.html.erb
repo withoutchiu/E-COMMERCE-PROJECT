@@ -116,7 +116,9 @@
             </table>
 
             <div class="card-body border-top">
-              <a href="#" class="btn btn-primary float-md-right"> Make Purchase <i class="fa fa-chevron-right"></i> </a>
+              <%= form_with url: checkout_create_path, remote: true do %>
+                <%= button_tag 'Make Purchase', class: "btn btn-primary float-md-right"%>
+              <% end %>
               <a href="#" class="btn btn-light"> <i class="fa fa-chevron-left" data-dismiss="modal"></i> Continue shopping </a>
             </div>
           </div>

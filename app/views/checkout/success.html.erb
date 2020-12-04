@@ -1,0 +1,16 @@
+<%= render 'shared/navbar'%>
+<section class="section-conten padding-y" style="min-height:84vh">
+
+<!-- ============================ COMPONENT LOGIN   ================================= -->
+	<div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+      <div class="card-body">
+      <h4 class="card-title mb-4">Thank you for your Purchase, <%=current_user.present? ? current_user.first_name : 'Stranger'%>!</h4>
+            <br><br>
+        <h3 class="card-title mb-3"> Your shoes, wiill be delivered right away!! </h3>
+      </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+
+<!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+
+</section>
